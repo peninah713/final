@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reayou Furniture</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Background Slideshow Container */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: slideShow 30s infinite;
+    }
+
+    .slide:nth-child(1) {
+      background-image: url('background.jfif');
+      animation-delay: 0s;
+    }
+
+    .slide:nth-child(2) {
+      background-image: url('house7.jfif');
+      animation-delay: 10s;
+    }
+
+    .slide:nth-child(3) {
+      background-image: url('house5.jfif');
+      animation-delay: 20s;
+    }
+
+    @keyframes slideShow {
+      0%, 100% { opacity: 0; }
+      10%, 30% { opacity: 1; }
+      40%, 90% { opacity: 0; }
+    }
+
+    /* Floating animated icons */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .animated-bg img {
+      position: absolute;
+      width: 120px;
+      opacity: 0.12;
+      animation: float 40s linear infinite;
+      filter: brightness(1.6);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        left: calc(100% * var(--rand));
+      }
+      100% {
+        transform: translateY(-250px) rotate(360deg);
+        left: calc(100% * var(--rand));
+      }
+    }
+
+    .overlay {
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.65);
+      min-height: 100vh;
+      z-index: 2;
+      color: white;
+    }
+
+    nav {
+      background-color: #2e7d32;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d0ffd0;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      font-size: 20px;
+      font-weight: normal;
+      color: #d0d0d0;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .feature {
+      background-color: rgba(255, 255, 255, 0.1);
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 0 30px;
+      justify-items: center;
+    }
+
+    .product {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 15px;
+      width: 100%;
+      max-width: 260px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product p {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+
+    .about-link {
+      text-align: center;
+      margin: 20px;
+      font-size: 18px;
+    }
+
+    .about-link a {
+      color: #a2ffb3;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ccc;
+      margin-top: 40px;
+    }
+
+    .map-container {
+      margin-top: 20px;
+      max-width: 100%;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Slideshow -->
+  <div class="slideshow">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+
+  <!-- Animated Floating Icons -->
+  <div class="animated-bg">
+    <img src="house6.jfif" style="--rand: 0.1;">
+    <img src="house8.jfif" style="--rand: 0.3;">
+    <img src="house6.jfif" style="--rand: 0.5;">
+    <img src="office4.jpeg" style="--rand: 0.7;">
+    <img src="office8.jpeg" style="--rand: 0.9;">
+  </div>
+
+  <!-- Page Content Overlay -->
+  <div class="overlay">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <header>
+      <h1>Reayou Furniture</h1>
+      <h2>Professional Office Furniture Factory</h2>
+    </header>
+
+    <section class="features">
+      <div class="feature">Selling Directly</div>
+      <div class="feature">Customers Design</div>
+      <div class="feature">Good Price</div>
+      <div class="feature">Best Quality</div>
+      <div class="feature">Quick on Time</div>
+    </section>
+
+    <section class="products">
+      <div class="product">
+        <img src="office1.jpeg" alt="Conference Table">
+        <p>Conference Tables</p>
+      </div>
+      <div class="product">
+        <img src="office2.jpeg" alt="Executive Desk">
+        <p>Executive Desks</p>
+      </div>
+      <div class="product">
+        <img src="office3.jpeg" alt="Workstations">
+        <p>Office Workstations</p>
+      </div>
+      <div class="product">
+        <img src="office4.jpeg" alt="Reception Desk">
+        <p>Reception Desks</p>
+      </div>
+    </section>
+
+    <div class="about-link">
+      <p>To know more about us, <a href="about.html">click here</a>.</p>
+    </div>
+
+    <footer>
+      <p>Contact: 0704088883 | Email: furniturereayou@gmail.com</p>
+      <p>Address: Athi River Devki 9 (Grayland VI)</p>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.744473873404!2d37.009!3d-1.448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3d6a60f7c8db%3A0x8f0f3d3b52e9db3!2sGrayland%20VI%2C%20Athi%20River!5e0!3m2!1sen!2ske!4v1685307284900!5m2!1sen!2ske"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
